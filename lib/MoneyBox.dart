@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+// สร้าง container ต้นแบบ
+class MoneyBox extends StatelessWidget {
+  String title; //ชื่อหมวดหมู่ / รายการ
+  double amount; //จำนวนเงิน
+  Color color; //สีbox
+  double size; //ขนาดbox
+  double sizefont; //ขาดตัวอักษร
+
+  MoneyBox(this.title, this.amount, this.color, this.size, this.sizefont);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      margin: EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      height: size,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+                fontSize: sizefont,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+          Expanded(
+            child: Text(
+              '${NumberFormat("#,###.##").format(amount)}',
+              style: TextStyle(
+                  fontSize: sizefont,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.right,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

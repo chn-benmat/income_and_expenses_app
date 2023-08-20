@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'MoneyBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "My App",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.lightBlue),
+      theme: ThemeData(primarySwatch: Colors.pink),
     );
   }
 }
@@ -32,33 +33,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("บัญชีของฉัน"),
+          title: Text(
+            "บัญชีของฉัน",
+            style: TextStyle(
+                fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 100,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.lightBlueAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 100,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 100,
-              )
+              MoneyBox("ยอดคงเหลือ", 15000, Colors.lightBlue.shade400, 120, 24),
+              MoneyBox("รายรับ", 10000, Colors.green.shade400, 100, 24),
+              MoneyBox("รายจ่าย", 5000, Colors.red.shade400, 100, 24),
+              MoneyBox("ค้างชำระเงิน", 12000, Colors.orange.shade400, 100, 24),
             ],
           ),
         ));
