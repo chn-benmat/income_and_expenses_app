@@ -15,7 +15,6 @@ class MoneyBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10.0),
-      margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(10),
